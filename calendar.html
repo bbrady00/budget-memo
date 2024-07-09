@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Budget Memo</title>
+  <!--fonts-->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&display=swap" rel="stylesheet">
+  <!--fontawesome-->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+  <!--jQuery ui stylesheet-->
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
+  <!--Bulma style-->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css">
+  <!--our own stylesheet-->
+  <link rel="stylesheet" href="./assets/css/calendar.css">
+</head>
+
+<body class="px-6 py-3">
+  <div class="columns  is-centered mt-5">
+
+    <div class="column is-8 is-narrow box m-3" id="cframe">
+      <!--calendar area-->
+      <div id="calendar" class="mx-6 is-has-text-text">
+        <div id="calendarHeader" class="is-flex gap-4 pb-5"></div>
+        <div id="calendarBody" class="is-flex is-flex-wrap-wrap pt-4 md">
+        </div>
+      </div>
+    </div>
+    <!--------------------------Bulma Modal------------------------------------->
+    <div id="modal-calendar" class="modal">
+      <div class="modal-background" id="modal-background-calendar"></div>
+      <div id="modalBody" class="modal-content has-background-white box mt-6 p-6">
+        <button id="exitBtnCalendar" class="button is-link is-light is-pulled-right mb-5">Cancel</button>
+        <form>
+
+          <div class="field">
+            <label id="modalHeader" class="has-text-grey label">Date</label>
+            <p id="modalDateArea"></p>
+          </div>
+
+          <div class="field">
+            <label class="label has-text-grey">Category</label>
+            <div class="control">
+              <div class="select is-fullwidth is-info">
+                <select class="has-background-info" id="selectOptionCalendar">
+                  <option>Food</option>
+                  <option>Utilities</option>
+                  <option>Housing</option>
+                  <option>Travel</option>
+                  <option>Entertainment</option>
+                  <option>Grocery</option>
+                  <option>Other</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="label has-text-grey">Amount</label>
+            <div class="control">
+              <input id="amount-calendar" class="input has-background-info" type="text" placeholder="$">
+            </div>
+          </div>
+
+          <button id="addBtnCalendar" class="button is-link mt-5">Add Log</button>
+        </form>
+      </div>
+      <button id="closeBulmaModalBtn" class="modal-close is-large" aria-label="close"></button>
+    </div>
+    <!--------------------------This Line above is the hidden modal-------------------->
+
+    <div id="sidebar"
+      class="column box m-3 has-text-text is-flex is-flex-direction-column is-flex-wrap-nowrap is-justify-content-space-between">
+      <div class="box has-text-centered p-6">
+        <h3><a class="has-text-info" href="./index.html">Monthly Expense Memo</a></h3>
+        <h4 class="is-size-5 has-text-info">Understanding Your Lifestyle</h4>
+
+      </div>
+      <div class="box px-6">
+        <p><b>Monthly Summary</b></p>
+
+        <hr>
+
+        <i class="fa-solid fa-utensils "></i>
+        <p class='js-food-sum'> </p>
+
+        <i class="fa-solid fa-fire-flame-simple"> </i>
+        <p class='js-utilities-sum'> </p>
+
+        <i class='fas fa-house-user'></i>
+        <p class='js-housing-sum'> </p>
+
+        <i class="fa-solid fa-car"> </i>
+        <p class='js-travel-sum'> </p>
+
+        <i class="fa-solid fa-tv"></i>
+        <p class='js-entertainment-sum'> </p>
+
+        <i class="fa-sharp fa-solid fa-basket-shopping"></i>
+        <p class="js-grocery-sum"> </p>
+
+        <i class="fa-solid fa-shirt"></i>
+        <p class="js-other-sum"> </p>
+
+        <div class="daily-total"></div>
+
+        <hr>
+
+        <p class="total js-total"> <b> </b></p>
+      </div>
+    </div>
+  </div>
+
+  <!--Bootstrap JavaScript-->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous"></script>
+  <!--jQuery JavaScript-->
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <!--jQuery ui JavaScript-->
+  <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js"></script>
+  <!--fontawesome-->
+  <script src="https://kit.fontawesome.com/4ca36e5657.js" crossorigin="anonymous"></script>
+  <!--Dayjs JavaScript-->
+  <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
+    integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U=" crossorigin="anonymous"></script>
+  <script src="
+    https://cdn.jsdelivr.net/npm/dayjs@1.11.10/dayjs.min.js
+    "></script>
+  <!--our own JavaScript-->
+  <script src="./assets/js/logic.js"></script>
+  <script src="./assets/js/calendar.js"></script>
+</body>
+
+</html>
